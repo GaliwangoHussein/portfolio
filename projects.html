@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects — Galiwango Hussein</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Galiwango</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu3">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu3">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active" href="projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h1 class="h3">Selected Projects</h1>
+      <div>
+        <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#projectModal">Quick Preview</button>
+      </div>
+    </div>
+
+    <!-- Projects grid using Bootstrap cards and grid -->
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <img src="assets/project1.jpg" class="card-img-top" alt="Project 1">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Responsive Portfolio (this site)</h5>
+            <p class="card-text">A multi-page responsive portfolio built with Bootstrap and custom CSS. Includes carousel and modal previews.</p>
+            <div class="mt-auto d-flex justify-content-between align-items-center pt-3">
+              <a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#projectModal" data-project="1">View</a>
+              <span class="badge bg-secondary">HTML • CSS • JS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <img src="assets/project2.jpg" class="card-img-top" alt="Project 2">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Library Management Mock</h5>
+            <p class="card-text">A prototype library system UI built to demonstrate CRUD pages and responsive tables.</p>
+            <div class="mt-auto d-flex justify-content-between align-items-center pt-3">
+              <a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#projectModal" data-project="2">View</a>
+              <span class="badge bg-secondary">Bootstrap • JS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <img src="assets/project3.jpg" class="card-img-top" alt="Project 3">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Media Gallery</h5>
+            <p class="card-text">An image and video gallery with lightbox-style modals and filtering UI.</p>
+            <div class="mt-auto d-flex justify-content-between align-items-center pt-3">
+              <a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#projectModal" data-project="3">View</a>
+              <span class="badge bg-secondary">Media • UX</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Modal used for quick project previews -->
+  <div class="modal fade" id="projectModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Project Preview</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body" id="projectModalBody">
+          <!-- Content injected by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="py-4 text-center bg-light">
+    <div class="container">© <span id="year3"></span> Galiwango Hussein</div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/scripts.js"></script>
+</body>
+</html>
