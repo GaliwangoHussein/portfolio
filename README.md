@@ -1,164 +1,201 @@
-# UCU Innovation Hub - Backend API
+# UCU Innovators Hub - Frontend
 
-Backend API for the UCU Innovation Hub application built with Node.js, Express, and MySQL.
+A modern, responsive web application for showcasing and managing student innovations and research projects at Uganda Christian University.
 
-## Prerequisites
+## 🚀 Features
 
-- Node.js (v14 or higher)
-- MySQL Server (v5.7 or higher)
+- **Public Project Gallery**: Browse approved projects with advanced search and filtering
+- **User Authentication**: Secure JWT-based authentication with role-based access control
+- **Role-Based Dashboards**:
+  - **Students**: Submit and manage projects
+  - **Supervisors**: Review and approve/reject project submissions
+  - **Admins**: Analytics dashboard, user management, and system oversight
+- **Project Management**: Complete CRUD operations for projects
+- **Analytics & Insights**: Visual charts showing project statistics
+- **Responsive Design**: Mobile-first design with Tailwind CSS
+- **Modern UI**: Glassmorphism effects, smooth animations, and gradient designs
+
+## 🛠️ Tech Stack
+
+- **Framework**: React 19.2.0
+- **Build Tool**: Vite 7.2.4
+- **Routing**: React Router DOM 6.23.0
+- **Styling**: Tailwind CSS 3.x
+- **HTTP Client**: Axios 1.6.5
+- **Charts**: Chart.js 4.4.1 + React-Chartjs-2 5.2.0
+- **State Management**: React Context API
+
+## 📋 Prerequisites
+
+- Node.js (v18 or higher)
 - npm or yarn
+- Backend API running (see backend repository)
 
-## Setup Instructions
+## 🔧 Installation
 
-### 1. Install Dependencies
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd UCU-INNOVATION-HUB-FRONT
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Configure environment variables**
+   Create a `.env` file in the root directory:
+   ```env
+   VITE_API_URL=http://localhost:5000/api
+   ```
+
+4. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+   The application will be available at `http://localhost:5173`
+
+## 📁 Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+│   ├── Navbar.jsx      # Navigation bar
+│   ├── ProjectCard.jsx # Project display card
+│   ├── SearchFilters.jsx # Search and filter component
+│   └── ProtectedRoute.jsx # Route protection wrapper
+├── context/            # React Context providers
+│   └── AuthContext.jsx # Authentication state management
+├── pages/              # Page components
+│   ├── PublicGallery.jsx    # Public project gallery
+│   ├── Login.jsx            # Login page
+│   ├── Register.jsx         # Registration page
+│   ├── StudentDashboard.jsx # Student dashboard
+│   ├── SupervisorDashboard.jsx # Supervisor dashboard
+│   └── AdminDashboard.jsx   # Admin dashboard
+├── utils/              # Utility functions
+│   └── api.js          # API client configuration
+├── styles/             # CSS files
+├── App.jsx             # Main application component
+├── main.jsx            # Application entry point
+└── index.css           # Global styles with Tailwind
+```
+
+## 🎨 Design System
+
+### Colors
+- **Primary**: Purple gradient (#667eea to #764ba2)
+- **Secondary**: Purple shades
+- **Background**: Gradient from gray-50 via blue-50 to purple-50
+
+### Components
+- **Buttons**: `.btn`, `.btn-primary`, `.btn-secondary`, `.btn-danger`, `.btn-success`
+- **Cards**: `.card`, `.card-hover`
+- **Inputs**: `.input`, `.input-error`
+- **Badges**: `.badge`, `.badge-pending`, `.badge-approved`, `.badge-rejected`
+
+## 🔐 Authentication
+
+The application uses JWT-based authentication with three user roles:
+
+### Demo Credentials
+- **Student**: `student@ucu.ac.ug` / `password123`
+- **Supervisor**: `supervisor@ucu.ac.ug` / `password123`
+- **Admin**: `admin@ucu.ac.ug` / `password123`
+
+## 📱 Pages
+
+### Public Pages
+- **Home/Gallery** (`/`): Browse all approved projects
+- **Login** (`/login`): User authentication
+- **Register** (`/register`): New user registration
+
+### Protected Pages
+- **Student Dashboard** (`/dashboard/student`): Submit and manage projects
+- **Supervisor Dashboard** (`/dashboard/supervisor`): Review project submissions
+- **Admin Dashboard** (`/dashboard/admin`): Analytics and user management
+
+## 🔌 API Integration
+
+The frontend communicates with the backend API using Axios. API endpoints are organized in `src/utils/api.js`:
+
+- **Auth**: Login, Register, Refresh Token
+- **Projects**: CRUD operations, Approval workflow
+- **Analytics**: Dashboard statistics
+- **Comments**: Project feedback
+- **Users**: User management
+
+## 🚀 Build for Production
 
 ```bash
-npm install
+# Create production build
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-### 2. Configure MySQL Database
+The build output will be in the `dist/` directory.
 
-1. Make sure MySQL is running on your machine
-2. Create a new database:
+## 🧪 Development
 
-```sql
-CREATE DATABASE ucu_innovation_hub;
-```
-
-3. Update the `.env` file with your MySQL credentials:
-
-```env
-DB_HOST=localhost
-DB_PORT=3306
-DB_NAME=ucu_innovation_hub
-DB_USER=root
-DB_PASSWORD=your_mysql_password_here
-```
-
-**IMPORTANT**: Replace `your_mysql_password_here` with your actual MySQL root password.
-
-### 3. Seed the Database
-
-Run the seed script to create tables and populate with demo data:
-
+### Running Linter
 ```bash
-npm run seed
+npm run lint
 ```
 
-This will create:
-- Database tables (users, projects, comments)
-- Demo users with credentials:
-  - **Student**: `student@ucu.ac.ug` / `password123`
-  - **Supervisor**: `supervisor@ucu.ac.ug` / `password123`
-  - **Admin**: `admin@ucu.ac.ug` / `password123`
-- Sample projects
+### Code Style
+- Use functional components with hooks
+- Follow React best practices
+- Use Tailwind utility classes
+- Keep components small and focused
+- Use PropTypes for type checking
 
-### 4. Start the Server
+## 📦 Key Dependencies
 
-```bash
-npm start
+```json
+{
+  "react": "^19.2.0",
+  "react-dom": "^19.2.0",
+  "react-router-dom": "^6.23.0",
+  "axios": "^1.6.5",
+  "chart.js": "^4.4.1",
+  "react-chartjs-2": "^5.2.0"
+}
 ```
 
-For development with auto-reload:
+## 🎯 Features Roadmap
 
-```bash
-npm run dev
-```
+- [x] User authentication and authorization
+- [x] Public project gallery
+- [x] Search and filter functionality
+- [x] Role-based dashboards
+- [ ] Project submission with file upload
+- [ ] Project approval workflow
+- [ ] Comments and feedback system
+- [ ] Analytics dashboard with charts
+- [ ] User profile management
+- [ ] Email notifications
+- [ ] Export functionality
 
-The server will start on `http://localhost:5000`
+## 🤝 Contributing
 
-## API Endpoints
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-### Authentication
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - Login user
-- `GET /api/auth/me` - Get current user (requires auth)
+## 📄 License
 
-### Projects
-- `GET /api/projects` - Get all projects (public)
-- `GET /api/projects/:id` - Get project by ID
-- `POST /api/projects` - Create project (student only)
-- `PUT /api/projects/:id` - Update project
-- `DELETE /api/projects/:id` - Delete project
-- `GET /api/projects/my-projects` - Get user's projects
-- `POST /api/projects/:id/approve` - Approve project (supervisor/admin)
-- `POST /api/projects/:id/reject` - Reject project (supervisor/admin)
+This project is part of the UCU academic curriculum.
 
-### Analytics
-- `GET /api/analytics/dashboard` - Dashboard statistics
-- `GET /api/analytics/projects-by-faculty` - Projects grouped by faculty
-- `GET /api/analytics/trending-technologies` - Most used technologies
-- `GET /api/analytics/approval-rates` - Approval statistics
+## 👥 Team
 
-### Users
-- `GET /api/users` - Get all users (admin only)
-- `PUT /api/users/:id/role` - Update user role (admin only)
+Developed by UCU students for the UCU Innovators Hub project.
 
-### Comments
-- `GET /api/comments/:projectId` - Get comments for project
-- `POST /api/comments` - Create comment
+## 📞 Support
 
-## Environment Variables
-
-Create a `.env` file in the root directory:
-
-```env
-# Server Configuration
-PORT=5000
-NODE_ENV=development
-
-# Database Configuration
-DB_HOST=localhost
-DB_PORT=3306
-DB_NAME=ucu_innovation_hub
-DB_USER=root
-DB_PASSWORD=your_password_here
-
-# JWT Configuration
-JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
-JWT_EXPIRE=7d
-```
-
-## Testing the API
-
-1. Start the backend server: `npm start`
-2. Start the frontend: Navigate to `../UCU-INNOVATION-HUB-FRONT` and run `npm run dev`
-3. Open the frontend in your browser
-4. Login with demo credentials
-5. Test the different dashboards and features
-
-## Troubleshooting
-
-### MySQL Connection Error
-
-If you get "Access denied for user 'root'@'localhost'":
-1. Make sure MySQL is running
-2. Update `DB_PASSWORD` in `.env` with your MySQL password
-3. Verify the database exists: `CREATE DATABASE ucu_innovation_hub;`
-
-### Port Already in Use
-
-If port 5000 is already in use:
-1. Change `PORT` in `.env` to another port (e.g., 5001)
-2. Update the frontend `.env` file to match: `VITE_API_URL=http://localhost:5001/api`
-
-## Project Structure
-
-```
-UCU-INNOVATION-HUB-BACKEND/
-├── src/
-│   ├── config/          # Database configuration
-│   ├── controllers/     # Route controllers
-│   ├── middleware/      # Auth & validation middleware
-│   ├── models/          # Sequelize models
-│   ├── routes/          # API routes
-│   └── seeders/         # Database seed scripts
-├── .env                 # Environment variables
-├── .gitignore          # Git ignore file
-├── package.json        # Dependencies
-└── server.js           # Entry point
-```
-
-## License
-
-ISC
+For support, email support@ucu.ac.ug or create an issue in the repository.
