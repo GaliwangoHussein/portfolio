@@ -1,24 +1,59 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Database files
+*.sqlite
+*.sqlite3
+*.db
+database.sqlite
+
 # Logs
-logs
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
-node_modules/
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# OS files
 .DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.vs/
+
+# Build output
+dist/
+build/
+.next/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Testing
+coverage/
+.nyc_output/
+
+# User-specific files
 *.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+*.user
+*.userosscache
+*.sln.docstates
+
+# Misc
+.cache/
